@@ -17,18 +17,16 @@ const sql = (query: TemplateStringsArray, ...args: any[]) => {
 class Column {
 	name: string;
 	type: string;
-	nullable: boolean;
 	id: string;
 
-	constructor(name: string, type: string, identifier: string, nullable: boolean = false) {
+	constructor(name: string, type: string, identifier: string) {
 		this.name = name;
 		this.type = type;
-		this.nullable = nullable;
 		this.id = identifier;
 	}
 
 	toString() {
-		return `${this.name} ${this.type}${this.nullable ? '' : ' NOT NULL'} ${this.id}`;
+		return `${this.name} ${this.type} ${this.id}`;
 	}
 }
 
