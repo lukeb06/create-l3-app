@@ -1,35 +1,31 @@
-import { createHTTPHandler } from '@trpc/server/adapters/standalone';
 import { router } from './trpc';
-import { createServer } from 'node:http';
+import { createContext } from './authorization';
 
 import { procedures } from './procedures';
+
+import { trpcServer } from '@hono/trpc-server';
+import { Hono } from 'hono';
 
 const appRouter = router(procedures);
 
 export type AppRouter = typeof appRouter;
 
-const handler = createHTTPHandler({
-	router: appRouter,
-	createContext() {
-		return {};
-	},
+const app = new Hono();
+
+app.use('*', async (c, next) => {
+    c.res.headers.set('Access-Control-Allow-Origin', '*');
+    c.res.headers.set('Access-Control-Request-Method', '*');
+    c.res.headers.set('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
+    c.res.headers.set('Access-Control-Allow-Headers', '*');
+    c.res.headers.set('Access-Control-Allow-Credentials', 'true');
+
+    if (c.req.method === 'OPTIONS') {
+        return c.text('', 200);
+    }
+
+    await next();
 });
 
-const server = createServer((req: any, res: any) => {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Request-Method', '*');
-	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
-	res.setHeader('Access-Control-Allow-Headers', '*');
+app.use('/trpc/*', trpcServer({ router: appRouter, createContext }));
 
-	if (req.method === 'OPTIONS') {
-		res.writeHead(200);
-		res.end();
-		return;
-	}
-
-	handler(req, res);
-});
-
-server.listen(3001, () => {
-	console.log('Server is running on port 3001');
-});
+export default app;

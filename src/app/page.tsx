@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { API } from '@/lib/api';
 
-import { SERVER } from '@/lib/server';
+import Client from './client';
 
 export default async function Page() {
-	const { status } = await SERVER.status.query();
+    const SERVER = await API();
+    const { status } = await SERVER.status.query();
 
-	return (
-		<div>
-			<h1 className="text-3xl font-extrabold">{status}</h1>
-		</div>
-	);
+    return (
+        <div>
+            <h1 className="text-3xl font-extrabold">{status}</h1>
+
+            <Client />
+        </div>
+    );
 }
