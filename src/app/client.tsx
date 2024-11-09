@@ -9,7 +9,6 @@ export default function Client() {
         <>
             <button
                 onClick={() => {
-                    console.log(SERVER, typeof SERVER);
                     SERVER.echo
                         .query({ message: prompt() || '' })
                         .then(({ message }) => alert(message));
