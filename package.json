@@ -34,9 +34,9 @@
         "zod": "^3.23.8"
     },
     "scripts": {
-        "dev": "concurrently --kill-others \"next dev\" \"bun run --watch server/index.ts\"",
+        "dev": "concurrently --kill-others \"next dev -p 5170\" \"bun run --watch server/index.ts\"",
         "build": "next build",
-        "start": "next start",
+        "start": "concurrently --kill-others \"next start -p 5170\" \"bun run server/index.ts\"",
         "lint": "next lint"
     }
 }
