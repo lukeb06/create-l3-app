@@ -3,7 +3,7 @@
 import { useAPI } from '@/hooks/use-api';
 
 export default function Client() {
-    const [SERVER, _] = useAPI();
+    const SERVER = useAPI();
 
     return (
         <>

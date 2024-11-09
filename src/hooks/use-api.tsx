@@ -29,8 +29,7 @@ export const setHeaders = (_headers: {}) => {
 };
 
 type Server = typeof SERVER;
-type SetHeadersFunction = typeof setHeaders;
 
-export const useAPI = (): [Server, SetHeadersFunction] => {
-    return [SERVER, setHeaders];
+export const useAPI = (): Server => {
+    return SERVER;
 };
