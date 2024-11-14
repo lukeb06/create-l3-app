@@ -2,6 +2,8 @@
 
 create-l3-app is a CLI tool designed to scaffold full-stack, type-safe web applications using modern frameworks and technologies like Next.js, Bun, Hono, tRPC, and SQLite. Tailored for intermediate React developers, this tool accelerates development by providing a fast, minimal-bloat setup that streamlines the process of building scalable applications.
 
+[Read the docs](https://www.lukebarrier.info/l3/docs)
+
 ## Features
 
 - 🚀 Type-safe APIs with tRPC: Create robust remote procedures without the overhead of REST APIs.
@@ -14,3 +16,5 @@ create-l3-app is a CLI tool designed to scaffold full-stack, type-safe web appli
 ```bash
 npx create-l3-app@latest
 ```
+
+[Get started](https://www.lukebarrier.info/l3/docs)
