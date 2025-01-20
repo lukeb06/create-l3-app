@@ -9,7 +9,8 @@ export const LocalStorageProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [state, setState] = useState({});
+    const initialState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state') as string) : {};
+    const [state, setState] = useState(initialState);
 
     useEffect(() => {
         const storage = localStorage.getItem('state');
