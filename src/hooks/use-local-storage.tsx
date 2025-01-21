@@ -14,7 +14,6 @@ export const LocalStorageProvider = ({
     const initialState = storage ? JSON.parse(_state) : {};
     const [state, setState] = useState(initialState);
 
-
     const modify = (newState: Object) => {
         const updatedState = { ...state, ...newState };
         localStorage.setItem('state', JSON.stringify(updatedState));
