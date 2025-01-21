@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React from 'react';
 
-const LocalStorageContext = createContext<any>([{}, () => { }]);
+const LocalStorageContext = React.createContext<any>([{}, () => { }]);
 
 export const LocalStorageProvider = ({
     children,
@@ -12,7 +12,7 @@ export const LocalStorageProvider = ({
     const storage = typeof localStorage === 'undefined' ? { getItem: () => null } : localStorage;
     const _state = storage.getItem('state') || '{}';
     const initialState = _state ? JSON.parse(_state) : {};
-    const [state, setState] = useState(initialState);
+    const [state, setState] = React.useState(initialState);
 
     const modify = (newState: Object) => {
         const updatedState = { ...state, ...newState };
@@ -28,5 +28,5 @@ export const LocalStorageProvider = ({
 };
 
 export const useLocalStorage = () => {
-    return useContext(LocalStorageContext);
+    return React.useContext(LocalStorageContext);
 };
