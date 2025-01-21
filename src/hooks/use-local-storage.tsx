@@ -2,22 +2,17 @@
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const LocalStorageContext = createContext<any>([{}, () => {}]);
+const LocalStorageContext = createContext<any>([{}, () => { }]);
 
 export const LocalStorageProvider = ({
     children,
 }: {
     children: React.ReactNode;
 }) => {
-    const initialState = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state') as string) : {};
+    const storage = localStorage || { getItem: () => null, setItem: () => null };
+    const _state = localStorage.getItem('state') || '{}';
+    const initialState = storage ? JSON.parse(_state) : {};
     const [state, setState] = useState(initialState);
-
-    useEffect(() => {
-        const storage = localStorage.getItem('state');
-        if (storage) {
-            setState(JSON.parse(storage));
-        }
-    }, []);
 
     const modify = (newState: Object) => {
         const updatedState = { ...state, ...newState };
