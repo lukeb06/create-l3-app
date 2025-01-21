@@ -9,10 +9,11 @@ export const LocalStorageProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const storage = localStorage || { getItem: () => null, setItem: () => null };
-    const _state = localStorage.getItem('state') || '{}';
+    const storage = typeof localStorage === 'undefined' ? { getItem: () => null } : localStorage;
+    const _state = storage.getItem('state') || '{}';
     const initialState = storage ? JSON.parse(_state) : {};
     const [state, setState] = useState(initialState);
+
 
     const modify = (newState: Object) => {
         const updatedState = { ...state, ...newState };
