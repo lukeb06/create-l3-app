@@ -11,7 +11,7 @@ export const LocalStorageProvider = ({
 }) => {
     const storage = typeof localStorage === 'undefined' ? { getItem: () => null } : localStorage;
     const _state = storage.getItem('state') || '{}';
-    const initialState = storage ? JSON.parse(_state) : {};
+    const initialState = _state ? JSON.parse(_state) : {};
     const [state, setState] = useState(initialState);
 
     const modify = (newState: Object) => {
