@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { useAPI } from '@/hooks/use-api';
 
 export default function Client() {
@@ -7,7 +8,7 @@ export default function Client() {
 
     return (
         <>
-            <button
+            <Button
                 onClick={() => {
                     SERVER.echo
                         .query({ message: prompt() || '' })
@@ -15,7 +16,7 @@ export default function Client() {
                 }}
             >
                 echo
-            </button>
+            </Button>
         </>
     );
 }

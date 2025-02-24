@@ -9,26 +9,26 @@ import { LocalStorageProvider } from '@/hooks/use-local-storage';
 import { CookiesProvider } from 'next-client-cookies/server';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<body>
-				<CookiesProvider>
-					<LocalStorageProvider>
-						<StoreProvider>
-							<ThemeProvider
-								attribute="class"
-								defaultTheme="system"
-								enableSystem
-								disableTransitionOnChange
-							>
-								<main className="max-w-[1200px] bg-background relative mx-auto grid place-items-center overflow-hidden">
-									{children}
-								</main>
-							</ThemeProvider>
-						</StoreProvider>
-					</LocalStorageProvider>
-				</CookiesProvider>
-			</body>
-		</html>
-	);
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                <CookiesProvider>
+                    <LocalStorageProvider>
+                        <StoreProvider>
+                            <ThemeProvider
+                                attribute="class"
+                                defaultTheme="system"
+                                enableSystem
+                                disableTransitionOnChange
+                            >
+                                <main className="max-w-[1200px] bg-background relative mx-auto h-[100dvh]">
+                                    {children}
+                                </main>
+                            </ThemeProvider>
+                        </StoreProvider>
+                    </LocalStorageProvider>
+                </CookiesProvider>
+            </body>
+        </html>
+    );
 }
