@@ -1,12 +1,17 @@
 import React from 'react';
 
-import '../../globals.css';
+import '@/global.css';
 import '@/global.scss';
 
 import { ThemeProvider } from '@/components/theme-provider';
 import { StoreProvider } from '@/hooks/use-store';
 import { LocalStorageProvider } from '@/hooks/use-local-storage';
 import { CookiesProvider } from 'next-client-cookies/server';
+
+export const metadata = {
+    title: 'create-l3-app',
+    description: 'Simple Next.js Scaffold',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
