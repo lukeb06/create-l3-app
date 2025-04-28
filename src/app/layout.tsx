@@ -8,6 +8,8 @@ import { StoreProvider } from '@/hooks/use-store';
 import { LocalStorageProvider } from '@/hooks/use-local-storage';
 import { CookiesProvider } from 'next-client-cookies/server';
 
+import { ViewTransitions } from 'next-view-transitions';
+
 export const metadata = {
     title: 'create-l3-app',
     description: 'Simple Next.js Scaffold',
@@ -27,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 disableTransitionOnChange
                             >
                                 <main className="max-w-[1200px] bg-background relative mx-auto h-[100dvh]">
-                                    {children}
+                                    <ViewTransitions>{children}</ViewTransitions>
                                 </main>
                             </ThemeProvider>
                         </StoreProvider>
