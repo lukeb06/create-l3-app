@@ -2,25 +2,26 @@
     "name": "create-l3-app",
     "module": "index.ts",
     "type": "module",
+    "version": "2.0.0",
+    "license": "MIT",
     "devDependencies": {
-        "@types/bun": "latest",
+        "@types/node": "^22.15.2",
         "autoprefixer": "^10.4.20",
+        "dotenv-cli": "^8.0.0",
         "postcss": "^8.4.47",
-        "tailwindcss": "^3.4.13"
+        "prisma": "^6.6.0",
+        "tailwindcss": "^3.4.13",
+        "typescript": "^5.8.3"
     },
     "peerDependencies": {
         "typescript": "^5.0.0"
     },
     "dependencies": {
-        "@hono/trpc-server": "^0.3.2",
+        "@prisma/client": "6.6.0",
         "@radix-ui/react-slot": "^1.1.2",
-        "@trpc/client": "^11.0.0-rc.561",
-        "@trpc/server": "^11.0.0-rc.561",
         "@types/react": "^18.3.11",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
-        "concurrently": "^9.0.1",
-        "hono": "^4.6.9",
         "lucide-react": "^0.447.0",
         "next": "^14.2.14",
         "next-client-cookies": "^2.0.0",
@@ -30,14 +31,13 @@
         "react-dom": "^18.3.1",
         "sass": "^1.79.4",
         "tailwind-merge": "^2.5.3",
-        "tailwindcss-animate": "^1.0.7",
-        "trpc-bun-adapter": "^1.1.2",
-        "zod": "^3.23.8"
+        "tailwindcss-animate": "^1.0.7"
     },
     "scripts": {
-        "dev": "concurrently --kill-others \"next dev -p 5170\" \"bun run --watch server/index.ts\"",
+        "dev": "dotenv -c -- next dev",
         "build": "next build",
-        "start": "concurrently --kill-others \"next start -p 5170\" \"bun run server/index.ts\"",
+        "start": "dotenv -c -- next start",
         "lint": "next lint"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
