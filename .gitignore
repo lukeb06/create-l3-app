@@ -10,6 +10,9 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+generated
+prisma/migrations
+
 # Caches
 
 .cache
@@ -175,3 +178,5 @@ dist
 .DS_Store
 
 *.db
+
+/generated/prisma
