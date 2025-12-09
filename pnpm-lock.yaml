@@ -57,8 +57,8 @@ importers:
         specifier: ^1.79.4
         version: 1.90.0
       simple-web-tokens:
-        specifier: ^1.0.5
-        version: 1.0.5(typescript@5.9.2)
+        specifier: ^1.0.6
+        version: 1.0.6(typescript@5.9.2)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.6.0
@@ -1400,8 +1400,8 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
-  simple-web-tokens@1.0.5:
-    resolution: {integrity: sha512-fdZexsepeU+oGzle7loth7gMGU2JFhASSTg0Cw+mw1+6DwboxHRGLCl0Sr3zYiVr0cE3NGVrE+ENf32zZjgKSA==}
+  simple-web-tokens@1.0.6:
+    resolution: {integrity: sha512-fEpzeYpF8totvb9rVj8B2hCFmQX41TDmZZK0hl2TYjvALgdkWN4yfdRvrrkAj9SFxGxlwQDp2U7IDu2b4CAbfA==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -2734,7 +2734,7 @@ snapshots:
       is-arrayish: 0.3.2
     optional: true
 
-  simple-web-tokens@1.0.5(typescript@5.9.2):
+  simple-web-tokens@1.0.6(typescript@5.9.2):
     dependencies:
       typescript: 5.9.2
 

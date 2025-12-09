@@ -8,13 +8,13 @@ const PKEY = process.env.SECRET || 'key';
 
 export async function getUserFromAccessToken(accessToken: string) {
     try {
-        const at = await AccessToken.parse(accessToken, PKEY);
+        const at = AccessToken.parse(accessToken, PKEY);
 
         if (!at || !at.userId) return null;
 
         const user = await prisma.user.findUnique({
             where: {
-                id: at.userId,
+                id: at.userId as number,
             },
         });
 
@@ -36,7 +36,7 @@ export async function login(username: string, password: string) {
     const hash = await bcrypt.hash(password, user.passwordSalt);
     if (hash !== user.passwordHash) return null;
 
-    const [accessToken, _] = await createAccessRefreshPair(user.id, PKEY);
+    const [accessToken, refreshToken] = createAccessRefreshPair(user.id, PKEY);
 
     return accessToken;
 }
@@ -49,11 +49,11 @@ export async function register(username: string, password: string) {
         return { accessToken: null, error: 'Username cannot be more than 16 characters' };
     if (!usernameRegex.test(username)) return { accessToken: null, error: 'Invalid username' };
 
-    const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+~-]{8,128}$/;
+    const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+~-]{8,64}$/;
     if (password.length < 8)
         return { accessToken: null, error: 'Password must be at least 8 characters' };
-    if (password.length > 128)
-        return { accessToken: null, error: 'Password cannot be more than 128 characters' };
+    if (password.length > 64)
+        return { accessToken: null, error: 'Password cannot be more than 64 characters' };
     if (!passwordRegex.test(password)) return { accessToken: null, error: 'Invalid password' };
 
     const user = await prisma.user.findUnique({
@@ -75,7 +75,7 @@ export async function register(username: string, password: string) {
         },
     });
 
-    const [accessToken, _] = await createAccessRefreshPair(newUser.id, PKEY);
+    const [accessToken, refreshToken] = createAccessRefreshPair(newUser.id, PKEY);
 
     return { accessToken, error: null };
 }
