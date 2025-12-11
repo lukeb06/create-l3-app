@@ -57,8 +57,8 @@ importers:
         specifier: ^1.79.4
         version: 1.90.0
       simple-web-tokens:
-        specifier: ^1.1.0
-        version: 1.1.0(typescript@5.9.2)
+        specifier: ^1.1.1
+        version: 1.1.1(typescript@5.9.2)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.6.0
@@ -1381,9 +1381,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  sha256-uint8array@0.10.7:
-    resolution: {integrity: sha512-1Q6JQU4tX9NqsDGodej6pkrUVQVNapLZnvkwIhddH/JqzBZF1fSaxSWNY6sziXBE8aEa2twtGkXUrwzGeZCMpQ==}
-
   sharp@0.34.3:
     resolution: {integrity: sha512-eX2IQ6nFohW4DbvHIOLRB3MHFpYqaqvXd3Tp5e/T/dSH83fxaNJQRvDMhASmkNTsNTVF2/OOopzRCt7xokgPfg==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -1403,8 +1400,8 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
-  simple-web-tokens@1.1.0:
-    resolution: {integrity: sha512-C8w2k4sr6fcM4xNHSZLETnfLrRI9HTyDHl0Bs/WDD2mliKIBvQUUUpQs6CofD52gLZPXfKHLWRQgLZG6QdHq0g==}
+  simple-web-tokens@1.1.1:
+    resolution: {integrity: sha512-X9MTk2w7+9wd9gsM4YHlIkNgws6AKxBtQBZ19c5qePNiQlXf0I6r41bCLYFkfFodUW5ceFOL9VbLcxiPPNKYmA==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -1507,10 +1504,6 @@ packages:
     resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
     engines: {node: '>=14.17'}
     hasBin: true
-
-  uint8array-extras@1.5.0:
-    resolution: {integrity: sha512-rvKSBiC5zqCCiDZ9kAOszZcDvdAHwwIKJG33Ykj43OKcWsnmcBRL09YTU4nOeHZ8Y2a7l1MgTd08SBe9A8Qj6A==}
-    engines: {node: '>=18'}
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
@@ -2702,8 +2695,6 @@ snapshots:
 
   semver@7.7.2: {}
 
-  sha256-uint8array@0.10.7: {}
-
   sharp@0.34.3:
     dependencies:
       color: 4.2.3
@@ -2747,11 +2738,9 @@ snapshots:
       is-arrayish: 0.3.2
     optional: true
 
-  simple-web-tokens@1.1.0(typescript@5.9.2):
+  simple-web-tokens@1.1.1(typescript@5.9.2):
     dependencies:
-      sha256-uint8array: 0.10.7
       typescript: 5.9.2
-      uint8array-extras: 1.5.0
       uuid: 13.0.0
 
   source-map-js@1.2.1: {}
@@ -2863,8 +2852,6 @@ snapshots:
   type-fest@4.41.0: {}
 
   typescript@5.9.2: {}
-
-  uint8array-extras@1.5.0: {}
 
   undici-types@6.21.0: {}
 
