@@ -5,8 +5,13 @@ import { getUserFromAccessToken } from './actions';
 
 export async function getAuth() {
     const cookies = await getCookies();
-    const token = cookies.get('token') || null;
-    const user = token ? await getUserFromAccessToken(token) : null;
+    const accessToken = cookies.get('token') || null;
+    const refreshToken = cookies.get('refresh') || null;
+    const authData =
+        accessToken && refreshToken
+            ? await getUserFromAccessToken({ accessToken, refreshToken })
+            : null;
+    const user = authData?.user || null;
 
-    return { token, user };
+    return { accessToken, user, refreshToken };
 }

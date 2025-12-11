@@ -8,6 +8,14 @@ import { useCookies } from 'next-client-cookies';
 import { Link, useTransitionRouter } from 'next-view-transitions';
 import { useState } from 'react';
 
+const ONE_SECOND = 1000;
+const ONE_MINUTE = 60 * ONE_SECOND;
+const FIFTEEN_MINUTES = 15 * ONE_MINUTE;
+const ONE_HOUR = 4 * FIFTEEN_MINUTES;
+const ONE_DAY = 24 * ONE_HOUR;
+const ONE_MONTH = 30 * ONE_DAY;
+const ONE_QUARTER = ONE_MONTH * 3;
+
 export default function RegisterPage() {
     const cookies = useCookies();
     const router = useTransitionRouter();
@@ -26,11 +34,13 @@ export default function RegisterPage() {
         if (password !== confirmPassword) return alert('Passwords do not match');
 
         setLoading(true);
-        register(username, password).then(({ accessToken, error }) => {
+        register(username, password).then(({ accessToken, refreshToken, error }) => {
             setLoading(false);
             if (error) return alert(error);
             if (!accessToken) return alert('An unknown error occurred');
+            if (!refreshToken) return alert('Something went wrong. Please try again.');
             cookies.set('token', accessToken);
+            cookies.set('refresh', refreshToken);
             router.push('/');
         });
     };
