@@ -57,8 +57,8 @@ importers:
         specifier: ^1.79.4
         version: 1.90.0
       simple-web-tokens:
-        specifier: ^1.0.6
-        version: 1.0.6(typescript@5.9.2)
+        specifier: ^1.1.1
+        version: 1.1.1(typescript@5.9.2)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.6.0
@@ -1400,8 +1400,8 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
-  simple-web-tokens@1.0.6:
-    resolution: {integrity: sha512-fEpzeYpF8totvb9rVj8B2hCFmQX41TDmZZK0hl2TYjvALgdkWN4yfdRvrrkAj9SFxGxlwQDp2U7IDu2b4CAbfA==}
+  simple-web-tokens@1.1.1:
+    resolution: {integrity: sha512-X9MTk2w7+9wd9gsM4YHlIkNgws6AKxBtQBZ19c5qePNiQlXf0I6r41bCLYFkfFodUW5ceFOL9VbLcxiPPNKYmA==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -1540,6 +1540,10 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -2734,9 +2738,10 @@ snapshots:
       is-arrayish: 0.3.2
     optional: true
 
-  simple-web-tokens@1.0.6(typescript@5.9.2):
+  simple-web-tokens@1.1.1(typescript@5.9.2):
     dependencies:
       typescript: 5.9.2
+      uuid: 13.0.0
 
   source-map-js@1.2.1: {}
 
@@ -2874,6 +2879,8 @@ snapshots:
       '@types/react': 19.1.9
 
   util-deprecate@1.0.2: {}
+
+  uuid@13.0.0: {}
 
   validate-npm-package-license@3.0.4:
     dependencies:
