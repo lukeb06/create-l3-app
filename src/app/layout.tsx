@@ -5,35 +5,36 @@ import '@/global.scss';
 
 import { ThemeProvider } from '@/components/theme-provider';
 import { StoreProvider } from '@/hooks/use-store';
-import { LocalStorageProvider } from '@/hooks/use-local-storage';
 import { CookiesProvider } from 'next-client-cookies/server';
 
 import { ViewTransitions } from 'next-view-transitions';
 
+import { TITLE, DESC } from '@/data/static';
+import InstallPrompt from '@/components/install-prompt';
+
 export const metadata = {
-    title: 'create-l3-app',
-    description: 'Simple Next.js Scaffold',
+    title: TITLE,
+    description: DESC,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body>
+            <body className="grid h-[100dvh] overflow-hidden">
                 <CookiesProvider>
-                    <LocalStorageProvider>
-                        <StoreProvider>
-                            <ThemeProvider
-                                attribute="class"
-                                defaultTheme="system"
-                                enableSystem
-                                disableTransitionOnChange
-                            >
-                                <main className="max-w-[1200px] bg-background relative mx-auto h-[100dvh]">
-                                    <ViewTransitions>{children}</ViewTransitions>
-                                </main>
-                            </ThemeProvider>
-                        </StoreProvider>
-                    </LocalStorageProvider>
+                    <StoreProvider>
+                        <ThemeProvider
+                            attribute="class"
+                            defaultTheme="system"
+                            enableSystem
+                            disableTransitionOnChange
+                        >
+                            <main className="bg-background relative h-[100dvh] w-full">
+                                <ViewTransitions>{children}</ViewTransitions>
+                                <InstallPrompt />
+                            </main>
+                        </ThemeProvider>
+                    </StoreProvider>
                 </CookiesProvider>
             </body>
         </html>

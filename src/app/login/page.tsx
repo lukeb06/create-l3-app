@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { TITLE } from '@/data/static';
 import { login } from '@/lib/actions';
 import { useCookies } from 'next-client-cookies';
 import { Link, useTransitionRouter } from 'next-view-transitions';
@@ -15,6 +16,8 @@ const ONE_HOUR = 4 * FIFTEEN_MINUTES;
 const ONE_DAY = 24 * ONE_HOUR;
 const ONE_MONTH = 30 * ONE_DAY;
 const ONE_QUARTER = ONE_MONTH * 3;
+
+const dev = process.env.NODE_ENV === 'development';
 
 export default function LoginPage() {
     const cookies = useCookies();
@@ -35,8 +38,8 @@ export default function LoginPage() {
             setLoading(false);
             if (!accessToken) return alert('Invalid username or password');
             if (!refreshToken) return alert('Something went wrong. Please try again.');
-            cookies.set('token', accessToken);
-            cookies.set('refresh', refreshToken);
+            cookies.set('token', accessToken, { secure: !dev, sameSite: 'strict' });
+            cookies.set('refresh', refreshToken, { secure: !dev, sameSite: 'strict' });
             router.push('/');
         });
     };
@@ -44,7 +47,7 @@ export default function LoginPage() {
     return (
         <div className="flex flex-col items-center justify-center gap-6 h-full">
             <h1 style={{ viewTransitionName: 'h1-title' }} className="text-xl font-mono">
-                create-l3-app
+                {TITLE}
             </h1>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div style={{ viewTransitionName: 'username-input' }}>

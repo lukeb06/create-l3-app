@@ -43,6 +43,9 @@
         "dev": "dotenv -c -- next dev --turbopack",
         "build": "next build",
         "start": "dotenv -c -- next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "migrate": "npx prisma migrate dev --name update",
+        "generate": "npx prisma generate",
+        "prisma": "npx prisma migrate dev --name update && npx prisma generate"
     }
 }

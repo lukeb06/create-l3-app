@@ -1,33 +1,3 @@
-@mixin sm {
-  @media (max-width: 640px) {
-    @content;
-  }
-}
-
-@mixin md {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin lg {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin xl {
-  @media (min-width: 1280px) {
-    @content;
-  }
-}
-
-@mixin xxl {
-  @media (min-width: 1536px) {
-    @content;
-  }
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -60,15 +30,4 @@
 
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--accent-foreground)) hsl(var(--accent));
-}
-
-body {
-  display: grid;
-  height: 100dvh;
-  overflow: hidden;
-}
-
-main {
-  width: 100%;
-  overflow: auto;
 }
