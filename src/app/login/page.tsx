@@ -46,9 +46,11 @@ export default function LoginPage() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-6 h-full">
-            <h1 style={{ viewTransitionName: 'h1-title' }} className="text-xl font-mono">
-                {TITLE}
-            </h1>
+            <Link href="/">
+                <h1 style={{ viewTransitionName: 'h1-title' }} className="text-xl font-mono">
+                    {TITLE}
+                </h1>
+            </Link>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div style={{ viewTransitionName: 'username-input' }}>
                     <Label htmlFor="username">Username</Label>

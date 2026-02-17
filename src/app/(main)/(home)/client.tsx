@@ -15,6 +15,7 @@ export default function Client({ user }: { user: User | null }) {
                 </h1>
                 <p>Count: {count}</p>
                 <Button onClick={() => setCount(count + 1)}>Increment</Button>
+                <Button onClick={() => setCount(0)}>Reset</Button>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ export function LogoutButton() {
             onClick={() => {
                 cookies.remove('token');
                 cookies.remove('refresh');
-                window.location.reload();
+                window.location.href = '/';
             }}
         >
             Logout

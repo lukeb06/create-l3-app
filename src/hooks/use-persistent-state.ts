@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function usePersistentState<T>(key: string, defaultValue: T): [T, (value: T) => void] {
     const [value, setValue] = useState<T>(defaultValue);
+    const initRef = useRef(false);
 
     useEffect(() => {
         const _value = JSON.parse(localStorage.getItem(key) || 'null') as T | null;
@@ -12,6 +13,10 @@ export function usePersistentState<T>(key: string, defaultValue: T): [T, (value:
     }, []);
 
     useEffect(() => {
+        if (!initRef.current) {
+            initRef.current = true;
+            return;
+        }
         localStorage.setItem(key, JSON.stringify(value));
     }, [value]);
 

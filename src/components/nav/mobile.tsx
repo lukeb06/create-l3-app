@@ -1,7 +1,8 @@
 'use client';
 
+import { TITLE } from '@/data/static';
 import { UserIcon, HomeIcon } from 'lucide-react';
-import { Link } from 'next-view-transitions';
+import { Link, useTransitionRouter } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 
 const links = [
@@ -13,16 +14,33 @@ export default function NavMobile() {
     const path = usePathname();
 
     return (
-        <nav className="flex lg:hidden flex-row items-center justify-evenly border-t border-border w-full p-4 pb-8">
+        <nav className="flex lg:hidden flex-row items-center justify-evenly border-t border-border w-full">
             {links.map(link => (
                 <Link
                     key={link.id}
                     href={link.href}
-                    className={`${path === link.href ? 'text-foreground' : 'text-neutral-500'}`}
+                    className={`p-4 pb-10 ${path === link.href ? 'text-foreground' : 'text-neutral-500'} flex-1 flex justify-center`}
                 >
                     {link.icon}
                 </Link>
             ))}
         </nav>
+    );
+}
+
+export function MobileHeader() {
+    const router = useTransitionRouter();
+
+    return (
+        <div
+            className="grid place-items-center lg:hidden w-full border-b border-border p-4"
+            style={{ gridTemplateColumns: '1fr 50% 1fr' }}
+        >
+            <div></div>
+            <Link href="/" onClick={() => router.refresh()}>
+                <h1 className="text-xl font-bold text-center">{TITLE}</h1>
+            </Link>
+            <div></div>
+        </div>
     );
 }
