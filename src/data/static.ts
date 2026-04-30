@@ -1,2 +1,2 @@
-export const TITLE = 'visa-burger';
-export const DESC = 'Simple Next.js Scaffold';
+export const TITLE = 'Visa Purchase Alerts';
+export const DESC = 'Visa Purchase Alerts';

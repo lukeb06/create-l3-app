@@ -7,11 +7,11 @@
     "devDependencies": {
         "@types/bcrypt": "^6.0.0",
         "@types/node": "^22.15.2",
+        "@types/node-telegram-bot-api": "^0.64.14",
         "@types/react": "^19.1.2",
         "autoprefixer": "^10.4.20",
         "dotenv-cli": "^8.0.0",
         "postcss": "^8.4.47",
-        "prisma": "^6.6.0",
         "tailwindcss": "^3.4.13",
         "typescript": "^5.8.3"
     },
@@ -19,7 +19,6 @@
         "typescript": "^5.0.0"
     },
     "dependencies": {
-        "@prisma/client": "6.13.0",
         "@radix-ui/react-dropdown-menu": "^2.1.15",
         "@radix-ui/react-label": "^2.1.7",
         "@radix-ui/react-slot": "^1.1.2",
@@ -31,6 +30,7 @@
         "next-client-cookies": "2.1.0",
         "next-themes": "0.4.6",
         "next-view-transitions": "^0.3.4",
+        "node-telegram-bot-api": "^0.67.0",
         "prettier": "^3.3.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
@@ -43,9 +43,6 @@
         "dev": "dotenv -c -- next dev --turbopack",
         "build": "next build",
         "start": "dotenv -c -- next start",
-        "lint": "next lint",
-        "migrate": "npx prisma migrate dev --name update",
-        "generate": "npx prisma generate",
-        "prisma": "npx prisma migrate dev --name update && npx prisma generate"
+        "lint": "next lint"
     }
 }
