@@ -1,2 +1,2 @@
-export const TITLE = 'create-l3-app';
+export const TITLE = 'visa-burger';
 export const DESC = 'Simple Next.js Scaffold';
