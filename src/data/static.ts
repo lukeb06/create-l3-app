@@ -1,2 +1,2 @@
-export const TITLE = 'Visa Purchase Alerts';
-export const DESC = 'Visa Purchase Alerts';
+export const TITLE = 'create-l3-app';
+export const DESC = 'Simple Next.js Scaffold';

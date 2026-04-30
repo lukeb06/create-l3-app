@@ -10,6 +10,7 @@ import { CookiesProvider } from 'next-client-cookies/server';
 import { ViewTransitions } from 'next-view-transitions';
 
 import { TITLE, DESC } from '@/data/static';
+import InstallPrompt from '@/components/install-prompt';
 
 export const metadata = {
     title: TITLE,
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         >
                             <main className="bg-background relative h-[100dvh] w-full">
                                 <ViewTransitions>{children}</ViewTransitions>
+                                <InstallPrompt />
                             </main>
                         </ThemeProvider>
                     </StoreProvider>

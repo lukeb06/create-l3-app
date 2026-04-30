@@ -1,32 +1,21 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Link } from "next-view-transitions";
+import { Button } from '@/components/ui/button';
+import type { User } from 'generated/prisma';
+import { usePersistentState } from '@/hooks/use-persistent-state';
 
-export default function Client() {
+export default function Client({ user }: { user: User | null }) {
+    const [count, setCount] = usePersistentState('count', 0);
+
     return (
-        <div className="w-full h-full p-4 pt-8">
-            <h1 className="text-3xl font-semibold">Dear customer</h1>
-            <p className="mt-6">Did you or someone you authorized use your debit or ATM card for:</p>
-            <h2 className="text-lg font-semibold mt-1">Declined Transaction</h2>
-            <h3 className="text-2xl font-semibold mt-4">ETISALAT QUICKPAY&nbsp;&nbsp;&nbsp;$27.31</h3>
-
-            <div className="mt-16 flex flex-row gap-6">
-                <div className="flex flex-col gap-2 flex-1">
-                    <Link href="/verify">
-                        <Button className="w-full bg-[#1434CB]">YES</Button>
-                    </Link>
-                    <ul className="list-disc list-inside text-sm text-neutral-500">
-                        <li>Your card remains active.</li>
-                        <li>If a purchase was declined, you will not be charged again unless you try again.</li>
-                    </ul>
-                </div>
-                <div className="flex flex-col gap-2 flex-1">
-                    <Link href="/deactivate">
-                        <Button variant="outline" className="w-full">NO</Button>
-                    </Link>
-                    <p className="text-sm text-neutral-500">We will close your current card and send you will be issued a new one.</p>
-                </div>
+        <div className="grid place-items-center w-full h-full">
+            <div className="flex flex-col items-center gap-4">
+                <h1 className="text-3xl font-extrabold">
+                    Hello, {user ? user.username : 'guest'}!
+                </h1>
+                <p>Count: {count}</p>
+                <Button onClick={() => setCount(count + 1)}>Increment</Button>
+                <Button onClick={() => setCount(0)}>Reset</Button>
             </div>
         </div>
     );
